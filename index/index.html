@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reina Jelek</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Background lucu dengan gradient dan pattern */
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Elemen dekorasi latar belakang */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* Membuat beberapa bubble dengan ukuran berbeda */
+        .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; top: 20%; }
+        .bubble:nth-child(2) { width: 50px; height: 50px; left: 70%; top: 60%; }
+        .bubble:nth-child(3) { width: 100px; height: 100px; left: 40%; top: 80%; }
+        .bubble:nth-child(4) { width: 60px; height: 60px; left: 90%; top: 10%; }
+
+        .text {
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeSlide 1.5s ease-out forwards;
+        }
+
+        /* Animasi transisi keren */
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) rotate(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="text">Reina Jelek</div>
+
+    <script>
+        // Menambahkan efek hover sederhana
+        const text = document.querySelector('.text');
+        text.addEventListener('mouseover', () => {
+            text.style.transform = 'scale(1.1)';
+            text.style.transition = 'transform 0.3s ease';
+        });
+        text.addEventListener('mouseout', () => {
+            text.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
